@@ -34,7 +34,12 @@
 		 ?>
 		<!--Add listing-->
 		<section class="sptb p-0">
+			<?php if(isset($_SESSION['user_no']))
+			{
+				?>
 			<input type="hidden" id="user_no" value="<?=$_SESSION['user_no']?>">
+			<?php
+		} ?>
 			<div class="container">
 				<hr>
 				<h2 class="text-center">전체 상품</h2>
