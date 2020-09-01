@@ -73,19 +73,20 @@ class Page extends MY_Controller {
         ));
     if(isset($_SESSION['user_no']))
     {
-    $this->load->view('product/detail', array(
-           'product_info' => $product_info,
-           'detail_info' => $detail_info,
-           'option_code_info' => $option_code_info,
-           'option_name_info' => $option_name_info,
-           'option_detail_info' => $option_detail_info,
-           'input_info' => $input_info,
-           'output_info' => $output_info,
-           'thumnais_info' => $thumnais_info,
-           'category_info' => $category_info,
-           'wishlist_info' => $wishlist_info
-       ));
-     }
+      $this->load->view('product/detail', array(
+             'product_info' => $product_info,
+             'detail_info' => $detail_info,
+             'option_code_info' => $option_code_info,
+             'option_name_info' => $option_name_info,
+             'option_detail_info' => $option_detail_info,
+             'input_info' => $input_info,
+             'output_info' => $output_info,
+             'thumnais_info' => $thumnais_info,
+             'category_info' => $category_info,
+             'wishlist_info' => $wishlist_info
+         ));
+     }else{
+
     $this->load->view('product/detail', array(
            'product_info' => $product_info,
            'detail_info' => $detail_info,
@@ -97,6 +98,7 @@ class Page extends MY_Controller {
            'thumnais_info' => $thumnais_info,
            'category_info' => $category_info
        ));
+     }
          $this->_footer();
    }
 
@@ -139,7 +141,7 @@ class Page extends MY_Controller {
         'user_no' => $user_no,
         'product_no' => $product_no
       ));
-    }
+      }
     }
           $this->_head();
           $this->_breadcrumb(array(
@@ -158,7 +160,9 @@ class Page extends MY_Controller {
             'allData' => $num,
             'defaultPage' => $defaultPage
           ));
-        }else{
+        }
+        else
+        {
           $this->load->view('/product/list',
           array(
             'all_product' => $product_info,
